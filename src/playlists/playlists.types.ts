@@ -1,4 +1,4 @@
-export interface IPlaylist {
+export interface Playlist {
   id: string;
   description: string;
   externalUrls: {

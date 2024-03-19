@@ -1,16 +1,17 @@
 import { Controller, Get, HttpException, HttpStatus } from '@nestjs/common';
 import { SpotifyService } from '../spotify/spotify.service';
-import { IPlaylist } from './playlists.types';
+import { SPOTIFY_USERNAME } from './playlists.constants';
 import { isVerifiedPlaylist } from './playlists.helpers';
+import { Playlist } from './playlists.types';
 
 @Controller('playlists')
 export class PlaylistsController {
   constructor(private spotifyService: SpotifyService) {}
 
   @Get()
-  async getPlaylists(): Promise<IPlaylist[]> {
+  async getPlaylists(): Promise<Playlist[]> {
     try {
-      const res = await this.spotifyService.getUserPlaylists('soulprovidr');
+      const res = await this.spotifyService.getUserPlaylists(SPOTIFY_USERNAME);
       return res.items.map((item) => ({
         id: item.id,
         description: item.description,
