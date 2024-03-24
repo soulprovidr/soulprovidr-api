@@ -1,15 +1,15 @@
-export interface ISpotifyImageObject {
+export interface SpotifyImageObject {
   url: string;
   height: number;
   width: number;
 }
 
-export interface ISpotifyPaginationParams {
+export interface SpotifyPaginationParams {
   limit: number;
   offset: number;
 }
 
-export interface ISpotifyPlaylist {
+export interface SpotifyPlaylist {
   collaborative: boolean;
   description: string;
   external_urls: {
@@ -17,7 +17,7 @@ export interface ISpotifyPlaylist {
   };
   href: string;
   id: string;
-  images: ISpotifyImageObject[];
+  images: SpotifyImageObject[];
   name: string;
   owner: {
     external_urls: {
@@ -43,18 +43,18 @@ export interface ISpotifyPlaylist {
   uri: string;
 }
 
-export interface ISpotifyTokenResponse {
+export interface SpotifyTokenResponse {
   access_token: string;
   token_type: string;
   expires_in: number;
 }
 
-export interface ISpotifyUserPlaylistsResponse {
+export interface SpotifyUserPlaylistsResponse {
   href: string;
   limit: number;
   next: string | null;
   offset: number;
   previous: string | null;
   total: number;
-  items: ISpotifyPlaylist[];
+  items: SpotifyPlaylist[];
 }

@@ -1,7 +1,7 @@
 import {
-  ISpotifyPaginationParams,
-  ISpotifyTokenResponse,
-  ISpotifyUserPlaylistsResponse,
+  SpotifyPaginationParams,
+  SpotifyTokenResponse,
+  SpotifyUserPlaylistsResponse,
 } from './types';
 
 export class Spotify {
@@ -49,7 +49,7 @@ export class Spotify {
   };
 
   /** Obtains an access token that can be used to access the Spotify API. */
-  async authorize(): Promise<ISpotifyTokenResponse> {
+  async authorize(): Promise<SpotifyTokenResponse> {
     try {
       const res = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
@@ -65,7 +65,7 @@ export class Spotify {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
       });
-      return (await res.json()) as ISpotifyTokenResponse;
+      return (await res.json()) as SpotifyTokenResponse;
     } catch (e) {
       throw e;
     }
@@ -73,10 +73,10 @@ export class Spotify {
 
   async getUserPlaylists(
     username: string,
-    params: ISpotifyPaginationParams = { limit: 50, offset: 0 },
-  ): Promise<ISpotifyUserPlaylistsResponse> {
+    params: SpotifyPaginationParams = { limit: 50, offset: 0 },
+  ): Promise<SpotifyUserPlaylistsResponse> {
     const userPlaylistsRequest =
-      await this.createAuthorizedRequest<ISpotifyUserPlaylistsResponse>(
+      await this.createAuthorizedRequest<SpotifyUserPlaylistsResponse>(
         `/users/${username}/playlists`,
         params,
       );

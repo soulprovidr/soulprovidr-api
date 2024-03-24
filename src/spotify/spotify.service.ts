@@ -1,7 +1,7 @@
 import {
-  ISpotifyPaginationParams,
-  ISpotifyUserPlaylistsResponse,
   Spotify,
+  SpotifyPaginationParams,
+  SpotifyUserPlaylistsResponse,
 } from '@lib/spotify';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
@@ -19,8 +19,8 @@ export class SpotifyService {
 
   async getUserPlaylists(
     username: string,
-    params: ISpotifyPaginationParams = { limit: 50, offset: 0 },
-  ): Promise<ISpotifyUserPlaylistsResponse> {
+    params: SpotifyPaginationParams = { limit: 50, offset: 0 },
+  ): Promise<SpotifyUserPlaylistsResponse> {
     return this._spotify.getUserPlaylists(username, params);
   }
 }
