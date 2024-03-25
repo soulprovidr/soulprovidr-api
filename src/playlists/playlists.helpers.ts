@@ -1,9 +1,9 @@
 import { SpotifyPlaylist } from '@lib/spotify/types';
+import { Playlist } from './interfaces/playlist.interface';
 import {
   DailyListeningPlaylistId,
   FreshFridaysPlaylistId,
 } from './playlists.constants';
-import { Playlist } from './playlists.types';
 
 export function buildPlaylistFromSpotifyPlaylist(
   playlist: SpotifyPlaylist,

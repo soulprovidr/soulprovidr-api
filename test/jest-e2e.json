@@ -1,4 +1,7 @@
 {
+  "globals": {
+    "NODE_ENV": "test"
+  },
   "moduleFileExtensions": ["js", "json", "ts"],
   "moduleNameMapper": {
     "^@lib/(.*)$": "<rootDir>/../src/lib/$1"

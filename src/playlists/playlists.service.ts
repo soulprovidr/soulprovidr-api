@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { SpotifyService } from 'src/spotify/spotify.service';
+import { Playlist } from './interfaces/playlist.interface';
 import { SPOTIFY_USERNAME } from './playlists.constants';
 import { buildPlaylistFromSpotifyPlaylist } from './playlists.helpers';
-import { Playlist } from './playlists.types';
 
 @Injectable()
 export class PlaylistsService {
